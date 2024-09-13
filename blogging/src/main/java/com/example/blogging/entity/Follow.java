@@ -10,26 +10,26 @@ public class Follow {
     private long id_follow;
 
     @ManyToOne
-    @JoinColumn(name = "id_user")
-    private User id_user_followed;
+    @JoinColumn(name = "id_user_following", referencedColumnName = "id_user")
+    private User user_following;
 
     @ManyToOne
-    @JoinColumn(name = "id_user")
-    private User id_user_follower;
+    @JoinColumn(name = "id_user_follower", referencedColumnName = "id_user")
+    private User user_follower;
 
     public Follow() {
         super();
     }
 
-    public Follow(long id_follow, User id_user_followed, User id_user_follower) {
+    public Follow(long id_follow, User user_following, User user_follower) {
         this.id_follow = id_follow;
-        this.id_user_followed = id_user_followed;
-        this.id_user_follower = id_user_follower;
+        this.user_following = user_following;
+        this.user_follower = user_follower;
     }
 
-    public Follow(User id_user_followed, User id_user_follower) {
-        this.id_user_followed = id_user_followed;
-        this.id_user_follower = id_user_follower;
+    public Follow(User user_following, User user_follower) {
+        this.user_following = user_following;
+        this.user_follower = user_follower;
     }
 
     public long getId_follow() {
@@ -40,19 +40,19 @@ public class Follow {
         this.id_follow = id_follow;
     }
 
-    public User getId_user_followed() {
-        return id_user_followed;
+    public User getUser_following() {
+        return user_following;
     }
 
-    public void setId_user_followed(User id_user_followed) {
-        this.id_user_followed = id_user_followed;
+    public void setUser_following(User user_following) {
+        this.user_following = user_following;
     }
 
-    public User getId_user_follower() {
-        return id_user_follower;
+    public User getUser_follower() {
+        return user_follower;
     }
 
-    public void setId_user_follower(User id_user_follower) {
-        this.id_user_follower = id_user_follower;
+    public void setUser_follower(User user_follower) {
+        this.user_follower = user_follower;
     }
 }

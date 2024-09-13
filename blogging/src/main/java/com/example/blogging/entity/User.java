@@ -36,14 +36,17 @@ public class User {
     @JoinColumn(name = "id_role", referencedColumnName = "id_role")
     private Role role;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
-    private List<Follow> follow;
+    @OneToMany(mappedBy = "id_user_following", cascade = CascadeType.PERSIST)
+    private List<Follow> followings;
+
+    @OneToMany(mappedBy = "id_user_follower", cascade = CascadeType.PERSIST)
+    private List<Follow> followers;
 
     public User() {
         super();
     }
 
-    public User(long id_user, String nickname, String full_name, String phone_number, String email, String password, List<Post> post, List<Comment> comment, Role role, List<Follow> follow) {
+    public User(long id_user, String nickname, String full_name, String phone_number, String email, String password, List<Post> post, List<Comment> comment, Role role, List<Follow> followings, List<Follow> followers) {
         this.id_user = id_user;
         this.nickname = nickname;
         this.full_name = full_name;
@@ -53,10 +56,11 @@ public class User {
         this.post = post;
         this.comment = comment;
         this.role = role;
-        this.follow = follow;
+        this.followings = followings;
+        this.followers = followers;
     }
 
-    public User(String nickname, String full_name, String phone_number, String email, String password, List<Post> post, List<Comment> comment, Role role, List<Follow> follow) {
+    public User(String nickname, String full_name, String phone_number, String email, String password, List<Post> post, List<Comment> comment, Role role, List<Follow> followings, List<Follow> followers) {
         this.nickname = nickname;
         this.full_name = full_name;
         this.phone_number = phone_number;
@@ -65,7 +69,8 @@ public class User {
         this.post = post;
         this.comment = comment;
         this.role = role;
-        this.follow = follow;
+        this.followings = followings;
+        this.followers = followers;
     }
 
     public long getId_user() {
@@ -140,11 +145,19 @@ public class User {
         this.role = role;
     }
 
-    public List<Follow> getFollow() {
-        return follow;
+    public List<Follow> getFollowings() {
+        return followings;
     }
 
-    public void setFollow(List<Follow> follow) {
-        this.follow = follow;
+    public void setFollowings(List<Follow> followings) {
+        this.followings = followings;
+    }
+
+    public List<Follow> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(List<Follow> followers) {
+        this.followers = followers;
     }
 }

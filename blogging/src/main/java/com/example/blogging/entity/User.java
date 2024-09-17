@@ -36,10 +36,10 @@ public class User {
     @JoinColumn(name = "id_role", referencedColumnName = "id_role")
     private Role role;
 
-    @OneToMany(mappedBy = "id_user_following", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "user_following", cascade = CascadeType.PERSIST)
     private List<Follow> followings;
 
-    @OneToMany(mappedBy = "id_user_follower", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "user_follower", cascade = CascadeType.PERSIST)
     private List<Follow> followers;
 
     public User() {

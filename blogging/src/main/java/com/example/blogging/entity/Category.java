@@ -45,6 +45,14 @@ public class Category {
         return name_category;
     }
 
+    public List<Post_x_category> getPost_x_category() {
+        return post_x_category;
+    }
+
+    public void setPost_x_category(List<Post_x_category> post_x_category) {
+        this.post_x_category = post_x_category;
+    }
+
     public void setName_category(String name_category) {
         this.name_category = name_category;
     }

@@ -1,11 +1,13 @@
 package com.example.blogging.Services;
 
+import com.example.blogging.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.blogging.Repository.RoleRepository;
 import com.example.blogging.dto.RoleDto;
 import com.example.blogging.entity.Role;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,6 +15,14 @@ public class RoleService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    public List<Role> findAll() {
+        return roleRepository.findAll();
+    }
+
+    public Optional<Role> findById(Long id) {
+        return roleRepository.findById(id);
+    }
 
     public boolean deleteRole(Long id) {
         roleRepository.deleteById(id);

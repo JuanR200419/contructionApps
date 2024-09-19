@@ -1,11 +1,13 @@
 package com.example.blogging.Services;
 
+import com.example.blogging.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.blogging.Repository.StateRepository;
 import com.example.blogging.dto.StateDto;
 import com.example.blogging.entity.State;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,6 +15,14 @@ public class StateService {
 
     @Autowired
     private StateRepository stateRepository;
+
+    public List<State> findAll() {
+        return stateRepository.findAll();
+    }
+
+    public Optional<State> findById(Long id) {
+        return stateRepository.findById(id);
+    }
 
     public boolean deleteState(Long id) {
         stateRepository.deleteById(id);

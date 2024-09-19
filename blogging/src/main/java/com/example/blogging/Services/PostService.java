@@ -1,11 +1,13 @@
 package com.example.blogging.Services;
 
+import com.example.blogging.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.blogging.Repository.PostRepository;
 import com.example.blogging.dto.PostDto;
 import com.example.blogging.entity.Post;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,6 +15,14 @@ public class PostService {
 
     @Autowired
     private PostRepository postRepository;
+
+    public List<Post> findAll() {
+        return postRepository.findAll();
+    }
+
+    public Optional<Post> findById(Long id) {
+        return postRepository.findById(id);
+    }
 
     public boolean deletePost(Long id) {
         postRepository.deleteById(id);

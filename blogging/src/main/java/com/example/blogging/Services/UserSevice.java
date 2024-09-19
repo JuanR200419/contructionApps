@@ -1,11 +1,13 @@
 package com.example.blogging.Services;
 
+import com.example.blogging.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.blogging.Repository.UserRepository;
 import com.example.blogging.dto.UserDto;
 import com.example.blogging.entity.User;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,6 +15,14 @@ public class UserSevice {
 
     @Autowired
     private UserRepository userRepository;
+
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    public Optional<User> findById(Long id) {
+        return userRepository.findById(id);
+    }
 
     public boolean deleteUser(Long id) {
         userRepository.deleteById(id);

@@ -1,4 +1,8 @@
 package com.example.blogging.Repository;
 
-public interface CategoryRepository {
+import com.example.blogging.entity.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category,Long> {
+
 }

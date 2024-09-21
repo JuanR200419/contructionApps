@@ -4,9 +4,7 @@ import com.example.blogging.services.StateService;
 import com.example.blogging.dto.StateDto;
 import com.example.blogging.entity.State;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +12,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/states")
 public class StateController {
+
     @Autowired
     private StateService stateService;
 
@@ -22,19 +21,23 @@ public class StateController {
         return stateService.findAll();
     }
 
-    public Optional<State> findById(Long id) {
-        return stateService.findById(id);
+    @GetMapping("/{id}")
+    public State findById(@PathVariable Long id) {
+        return stateService.findById(id).orElse(null);
     }
 
-    public boolean deleteState(Long id) {
-        return stateService.deleteState(id);
-    }
-
-    public State createState(StateDto stateDto) {
+    @PostMapping
+    public State createState(@RequestBody StateDto stateDto) {
         return stateService.createState(stateDto);
     }
 
-    public boolean updateState(Long id, StateDto stateDto) {
+    @PutMapping("/{id}")
+    public boolean updateState(@PathVariable Long id, @RequestBody StateDto stateDto) {
         return stateService.updateState(id, stateDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean deleteState(@PathVariable Long id) {
+        return stateService.deleteState(id);
     }
 }

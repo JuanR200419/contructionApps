@@ -4,9 +4,7 @@ import com.example.blogging.services.CommentService;
 import com.example.blogging.dto.CommentDto;
 import com.example.blogging.entity.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +12,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/comments")
 public class CommentController {
+
     @Autowired
     private CommentService commentService;
 
@@ -22,19 +21,23 @@ public class CommentController {
         return commentService.findAll();
     }
 
-    public Optional<Comment> findById(Long id) {
-        return commentService.findById(id);
+    @GetMapping("/{id}")
+    public Comment findById(@PathVariable Long id) {
+        return commentService.findById(id).orElse(null);
     }
 
-    public boolean deleteComment(Long id) {
-        return commentService.deleteComment(id);
-    }
-
-    public Comment createComment(CommentDto commentDto) {
+    @PostMapping
+    public Comment createComment(@RequestBody CommentDto commentDto) {
         return commentService.createComment(commentDto);
     }
 
-    public boolean updateComment(Long id, CommentDto commentDto) {
+    @PutMapping("/{id}")
+    public boolean updateComment(@PathVariable Long id, @RequestBody CommentDto commentDto) {
         return commentService.updateComment(id, commentDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean deleteComment(@PathVariable Long id) {
+        return commentService.deleteComment(id);
     }
 }

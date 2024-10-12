@@ -13,7 +13,7 @@ public class StateDto {
     @NotBlank
     @Max(value = 80, message = "EL  nombre del estado  tiene un límite de 80 caracteres")
     private String name_state;
-    @NotNull
+
     private Post post;
 
 public StateDto() {

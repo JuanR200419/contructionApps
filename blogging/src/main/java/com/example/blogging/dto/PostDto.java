@@ -29,9 +29,9 @@ public class PostDto {
     @NotNull
     private List<Post_x_tag> post_x_tag;
 
-    @NotNull
+
     private State state;
-    @NotNull
+
     private User user;
     @NotNull
     private List<Comment> comment;

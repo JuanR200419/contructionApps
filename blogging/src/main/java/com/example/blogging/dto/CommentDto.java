@@ -17,9 +17,7 @@ public class CommentDto {
     @Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$", message = "Fecha debe estar en formato YYYY-MM-DD")
     @NotNull
     private Date date_comment;
-    @NotBlank
     private Post post;
-    @NotBlank
     private User user;
 
     public CommentDto() {

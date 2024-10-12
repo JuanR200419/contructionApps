@@ -31,7 +31,7 @@ public class UserDto {
     private List<Post> post;
     @NotNull
     private List<Comment> comment;
-    @NotNull
+
     private Role role;
     @NotNull
     private List<Follow> followings;

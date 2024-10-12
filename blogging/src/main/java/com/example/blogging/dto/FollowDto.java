@@ -8,9 +8,7 @@ import jakarta.validation.constraints.NotNull;
 
 public class FollowDto {
 
-    @NotNull
     private User user_following;
-    @NotNull
     private User user_follower;
 
      public FollowDto() {

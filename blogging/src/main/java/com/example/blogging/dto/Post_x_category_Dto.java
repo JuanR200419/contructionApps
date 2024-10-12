@@ -8,9 +8,7 @@ import jakarta.validation.constraints.NotNull;
 
 public class Post_x_category_Dto {
 
-    @NotNull
     private Category category;
-    @NotNull
     private Post post;
 
     public Post_x_category_Dto() {

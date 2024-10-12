@@ -14,7 +14,7 @@ public class RoleDto {
     @NotBlank
     @Max(value = 80, message = "EL  nombre  tiene un límite de 80 caracteres")
     private String name_role;
-    @NotNull
+
     private User user;
 
 

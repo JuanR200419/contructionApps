@@ -9,10 +9,8 @@ import jakarta.validation.constraints.NotNull;
 
 public class Post_x_tag_Dto {
 
-    @NotNull
     private Post post;
 
-    @NotNull
     private Tag tag;
 
     public Post_x_tag_Dto() {

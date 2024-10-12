@@ -3,6 +3,7 @@ package com.example.blogging.controller;
 import com.example.blogging.services.CategoryService;
 import com.example.blogging.dto.CategoryDto;
 import com.example.blogging.entity.Category;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +28,12 @@ public class CategoryController {
     }
 
     @PostMapping
-    public Category createCategory(@RequestBody CategoryDto categoryDto) {
+    public Category createCategory(@Valid @RequestBody CategoryDto categoryDto) {
         return categoryService.createCategory(categoryDto);
     }
 
     @PutMapping("/{id}")
-    public boolean updateCategory(@PathVariable Long id, @RequestBody CategoryDto categoryDto) {
+    public boolean updateCategory(@Valid  @PathVariable Long id, @RequestBody CategoryDto categoryDto) {
         return categoryService.updateCategory(id, categoryDto);
     }
 

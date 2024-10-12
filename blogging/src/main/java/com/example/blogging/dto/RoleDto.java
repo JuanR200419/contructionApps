@@ -5,11 +5,16 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class RoleDto {
 
+    @NotBlank
+    @Max(value = 80, message = "EL  nombre  tiene un límite de 80 caracteres")
     private String name_role;
-
+    @NotNull
     private User user;
 
 

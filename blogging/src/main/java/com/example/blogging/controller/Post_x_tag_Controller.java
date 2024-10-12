@@ -3,6 +3,7 @@ package com.example.blogging.controller;
 import com.example.blogging.services.Post_x_tag_Service;
 import com.example.blogging.dto.Post_x_tag_Dto;
 import com.example.blogging.entity.Post_x_tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +28,12 @@ public class Post_x_tag_Controller {
     }
 
     @PostMapping
-    public Post_x_tag createPost_x_tag(@RequestBody Post_x_tag_Dto post_x_tag_Dto) {
+    public Post_x_tag createPost_x_tag( @Valid  @RequestBody Post_x_tag_Dto post_x_tag_Dto) {
         return post_x_tag_Service.createPost_x_tag(post_x_tag_Dto);
     }
 
     @PutMapping("/{id}")
-    public boolean updatePost_x_tag(@PathVariable Long id, @RequestBody Post_x_tag_Dto post_x_tag_Dto) {
+    public boolean updatePost_x_tag(@Valid @PathVariable Long id, @RequestBody Post_x_tag_Dto post_x_tag_Dto) {
         return post_x_tag_Service.updatePost_x_tag(id, post_x_tag_Dto);
     }
 

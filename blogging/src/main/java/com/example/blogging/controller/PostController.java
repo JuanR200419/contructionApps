@@ -3,6 +3,7 @@ package com.example.blogging.controller;
 import com.example.blogging.dto.PostDto;
 import com.example.blogging.entity.Post;
 import com.example.blogging.services.PostService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,12 +27,12 @@ public class PostController {
     }
 
     @PostMapping
-    public Post createPost(@RequestBody PostDto postDto) {
+    public Post createPost( @Valid  @RequestBody PostDto postDto) {
         return postService.createPost(postDto);
     }
 
     @PutMapping("/{id}")
-    public boolean updatePost(@PathVariable Long id, @RequestBody PostDto postDto) {
+    public boolean updatePost( @Valid @PathVariable Long id, @RequestBody PostDto postDto) {
         return postService.updatePost(id, postDto);
     }
 

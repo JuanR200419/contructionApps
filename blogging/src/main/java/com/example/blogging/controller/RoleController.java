@@ -3,6 +3,7 @@ package com.example.blogging.controller;
 import com.example.blogging.services.RoleService;
 import com.example.blogging.dto.RoleDto;
 import com.example.blogging.entity.Role;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +28,12 @@ public class RoleController {
     }
 
     @PostMapping
-    public Role createRole(@RequestBody RoleDto roleDto) {
+    public Role createRole( @Valid @RequestBody RoleDto roleDto) {
         return roleService.createRole(roleDto);
     }
 
     @PutMapping("/{id}")
-    public boolean updateRole(@PathVariable Long id, @RequestBody RoleDto roleDto) {
+    public boolean updateRole(@Valid  @PathVariable Long id, @RequestBody RoleDto roleDto) {
         return roleService.updateRole(id, roleDto);
     }
 

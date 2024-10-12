@@ -4,11 +4,13 @@ import com.example.blogging.entity.Category;
 import com.example.blogging.entity.Post;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 
 public class Post_x_category_Dto {
 
+    @NotNull
     private Category category;
-
+    @NotNull
     private Post post;
 
     public Post_x_category_Dto() {

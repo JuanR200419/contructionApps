@@ -4,13 +4,18 @@ import com.example.blogging.entity.Post_x_tag;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
 public class TagDto {
 
+    @NotBlank
+    @Max(value = 80, message = "EL  nombre del tag  tiene un límite de 80 caracteres")
     private String name_tag;
-
+    @NotNull
     private List<Post_x_tag> post_x_tag;
 
     public TagDto(String name_tag, List<Post_x_tag> post_x_tag) {

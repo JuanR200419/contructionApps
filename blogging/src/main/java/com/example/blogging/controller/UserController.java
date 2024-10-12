@@ -5,6 +5,7 @@ import com.example.blogging.services.JwtUtil;
 import com.example.blogging.services.UserSevice;
 import com.example.blogging.dto.UserDto;
 import com.example.blogging.entity.User;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +43,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody UserDto userDto) {
+    public User createUser(@Valid @RequestBody UserDto userDto) {
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         return userSevice.createUser(userDto);
     }
@@ -66,7 +67,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public boolean updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
+    public boolean updateUser( @Valid @PathVariable Long id, @RequestBody UserDto userDto) {
         return userSevice.updateUser(id, userDto);
     }
 

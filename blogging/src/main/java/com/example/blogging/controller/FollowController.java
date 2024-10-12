@@ -3,6 +3,7 @@ package com.example.blogging.controller;
 import com.example.blogging.services.FollowService;
 import com.example.blogging.dto.FollowDto;
 import com.example.blogging.entity.Follow;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +28,12 @@ public class FollowController {
     }
 
     @PostMapping
-    public Follow createFollow(@RequestBody FollowDto followDto) {
+    public Follow createFollow(@Valid  @RequestBody FollowDto followDto) {
         return followService.createFollow(followDto);
     }
 
     @PutMapping("/{id}")
-    public boolean updateFollow(@PathVariable Long id, @RequestBody FollowDto followDto) {
+    public boolean updateFollow(@Valid @PathVariable Long id, @RequestBody FollowDto followDto) {
         return followService.updateFollow(id, followDto);
     }
 

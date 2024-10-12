@@ -5,29 +5,37 @@ import com.example.blogging.entity.Follow;
 import com.example.blogging.entity.Post;
 import com.example.blogging.entity.Role;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 import java.util.List;
 
 public class UserDto {
 
+    @NotBlank
+    @Max(value = 80, message = "EL  nombre deL usuario  tiene un límite de 80 caracteres")
     private String nickname;
-
+    @NotBlank
+    @Max(value = 80, message = "EL  nombre completo tiene un límite de 80 caracteres")
     private String full_name;
-
+    @NotBlank
+    @Min(10)
+    @Max(10)
     private String phone_number;
-
+    @Email
+    @NotBlank
     private String email;
-
+    @NotBlank
+    @Max(value = 16, message = "La contraseña  tiene un límite de 16 caracteres")
     private String password;
-
+    @NotNull
     private List<Post> post;
-
+    @NotNull
     private List<Comment> comment;
-
+    @NotNull
     private Role role;
-
+    @NotNull
     private List<Follow> followings;
-
+    @NotNull
     private List<Follow> followers;
 
     public UserDto() {

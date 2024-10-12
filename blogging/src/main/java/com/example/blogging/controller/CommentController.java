@@ -3,6 +3,7 @@ package com.example.blogging.controller;
 import com.example.blogging.services.CommentService;
 import com.example.blogging.dto.CommentDto;
 import com.example.blogging.entity.Comment;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +28,12 @@ public class CommentController {
     }
 
     @PostMapping
-    public Comment createComment(@RequestBody CommentDto commentDto) {
+    public Comment createComment(@Valid @RequestBody CommentDto commentDto) {
         return commentService.createComment(commentDto);
     }
 
     @PutMapping("/{id}")
-    public boolean updateComment(@PathVariable Long id, @RequestBody CommentDto commentDto) {
+    public boolean updateComment(@Valid  @PathVariable Long id, @RequestBody CommentDto commentDto) {
         return commentService.updateComment(id, commentDto);
     }
 

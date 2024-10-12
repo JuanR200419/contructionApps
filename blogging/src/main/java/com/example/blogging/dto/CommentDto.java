@@ -5,12 +5,17 @@ import com.example.blogging.entity.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.*;
 
 import java.sql.Date;
 
 public class CommentDto {
+
+    @NotBlank
     private String text;
 
+    @Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$", message = "Fecha debe estar en formato YYYY-MM-DD")
+    @NotNull
     private Date date_comment;
 
     private Post post;

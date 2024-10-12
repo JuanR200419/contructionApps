@@ -28,6 +28,10 @@ public class UserSevice {
         return true;
     }
 
+    public Optional<User> findByNickname(String nickname) {
+        return userRepository.findByNickname(nickname);
+    }
+
     public User searchUser(Long id) {
         return userRepository.findById(id).orElse(null);
     }

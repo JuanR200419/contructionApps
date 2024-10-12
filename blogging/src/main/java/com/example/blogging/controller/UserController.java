@@ -43,7 +43,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@Valid @RequestBody UserDto userDto) {
+    public User createUser(@RequestBody UserDto userDto) {
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         return userSevice.createUser(userDto);
     }
@@ -57,10 +57,11 @@ public class UserController {
                     )
             );
         } catch (AuthenticationException e) {
+            e.printStackTrace();
             return ResponseEntity.status(401).body("Credenciales inválidas");
         }
 
-        final UserDetails userDetails = (UserDetails) userSevice.findByNickname(user.getNickname()).get();
+        final UserDetails userDetails = userSevice.findByNickname(user.getNickname()).get();
         final String jwt = jwtUtil.generateToken(userDetails);
 
         return ResponseEntity.ok(jwt);
@@ -68,6 +69,7 @@ public class UserController {
 
     @PutMapping("/{id}")
     public boolean updateUser( @Valid @PathVariable Long id, @RequestBody UserDto userDto) {
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         return userSevice.updateUser(id, userDto);
     }
 

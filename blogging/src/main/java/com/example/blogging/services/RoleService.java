@@ -35,7 +35,6 @@ public class RoleService {
     public Role createRole(RoleDto roleDto) {
         Role roleInfo = new Role();
         roleInfo.setName_role(roleDto.getName_role());
-        roleInfo.setUser(roleDto.getUser());
         return roleRepository.save(roleInfo);
     }
 
@@ -44,7 +43,6 @@ public class RoleService {
         if (optionalRole.isPresent()) {
             Role roleToUpdate = optionalRole.get();
             roleToUpdate.setName_role(roleDto.getName_role());
-            roleToUpdate.setUser(roleDto.getUser());
             roleRepository.save(roleToUpdate);
             return true;
         } else {

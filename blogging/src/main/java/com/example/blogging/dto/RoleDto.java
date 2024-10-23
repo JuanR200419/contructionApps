@@ -15,15 +15,12 @@ public class RoleDto {
     @Max(value = 80, message = "EL  nombre  tiene un límite de 80 caracteres")
     private String name_role;
 
-    private User user;
-
-
     public RoleDto() {
         super();
     }
-    public RoleDto(String name_role, User user) {
+
+    public RoleDto(String name_role) {
         this.name_role = name_role;
-        this.user = user;
     }
 
     public String getName_role() {
@@ -32,13 +29,5 @@ public class RoleDto {
 
     public void setName_role(String name_role) {
         this.name_role = name_role;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

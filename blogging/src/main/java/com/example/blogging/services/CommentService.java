@@ -36,8 +36,6 @@ public class CommentService {
         Comment commentInfo = new Comment();
         commentInfo.setText(commentDto.getText());
         commentInfo.setDate_comment(commentDto.getDate_comment());
-        commentInfo.setPost(commentDto.getPost());
-        commentInfo.setUser(commentDto.getUser());
         return commentRepository.save(commentInfo);
     }
 
@@ -47,8 +45,6 @@ public class CommentService {
             Comment commentToUpdate = optionalComment.get();
             commentToUpdate.setText(commentDto.getText());
             commentToUpdate.setDate_comment(commentDto.getDate_comment());
-            commentToUpdate.setPost(commentDto.getPost());
-            commentToUpdate.setUser(commentDto.getUser());
             commentRepository.save(commentToUpdate);
             return true;
         } else {

@@ -43,7 +43,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody UserDto userDto) {
+    public User createUser(@Valid @RequestBody UserDto userDto) {
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         return userSevice.createUser(userDto);
     }

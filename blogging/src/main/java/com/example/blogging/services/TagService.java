@@ -36,7 +36,6 @@ public class TagService {
     public Tag createTag(TagDto tagDto) {
         Tag tagInfo = new Tag();
         tagInfo.setName_tag(tagDto.getName_tag());
-        tagInfo.setPost_x_tag(tagDto.getPost_x_tag());
 
         return tagRepository.save(tagInfo);
     }
@@ -47,7 +46,6 @@ public class TagService {
         if (optionalTag.isPresent()) {
             Tag tagToUpdate = optionalTag.get();
             tagToUpdate.setName_tag(tagDto.getName_tag());
-            tagToUpdate.setPost_x_tag(tagDto.getPost_x_tag());
 
             tagRepository.save(tagToUpdate);
             return true;

@@ -35,7 +35,6 @@ public class CategoryService {
     public Category createCategory(CategoryDto categoryDto) {
         Category categoryInfo = new Category();
         categoryInfo.setName_category(categoryDto.getName_category());
-        categoryInfo.setPost_x_category(categoryDto.getPost_x_category());
         return categoryRepository.save(categoryInfo);
     }
 
@@ -44,7 +43,6 @@ public class CategoryService {
         if (optionalCategory.isPresent()) {
             Category categoryToUpdate = optionalCategory.get();
             categoryToUpdate.setName_category(categoryDto.getName_category());
-            categoryToUpdate.setPost_x_category(categoryDto.getPost_x_category());
             categoryRepository.save(categoryToUpdate);
             return true;
         } else {

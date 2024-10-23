@@ -11,12 +11,8 @@ public class CategoryDto {
     @Max(value = 80, message = "La dirección tiene un límite de 80 caracteres")
     private String name_category;
 
-    @NotBlank
-    private List<Post_x_category> post_x_category;
-
-    public CategoryDto(String name_category, List<Post_x_category> post_x_category) {
+    public CategoryDto(String name_category) {
         this.name_category = name_category;
-        this.post_x_category = post_x_category;
     }
     public CategoryDto() {
         super();
@@ -30,11 +26,4 @@ public class CategoryDto {
         this.name_category = name_category;
     }
 
-    public List<Post_x_category> getPost_x_category() {
-        return post_x_category;
-    }
-
-    public void setPost_x_category(List<Post_x_category> post_x_category) {
-        this.post_x_category = post_x_category;
-    }
 }

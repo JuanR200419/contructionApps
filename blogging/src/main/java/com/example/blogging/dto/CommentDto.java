@@ -17,18 +17,14 @@ public class CommentDto {
     @Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$", message = "Fecha debe estar en formato YYYY-MM-DD")
     @NotNull
     private Date date_comment;
-    private Post post;
-    private User user;
 
     public CommentDto() {
         super();
     }
 
-    public CommentDto(String text, Date date_comment, Post post, User user) {
+    public CommentDto(String text, Date date_comment) {
         this.text = text;
         this.date_comment = date_comment;
-        this.post = post;
-        this.user = user;
     }
 
     public String getText() {
@@ -47,19 +43,4 @@ public class CommentDto {
         this.date_comment = date_comment;
     }
 
-    public Post getPost() {
-        return post;
-    }
-
-    public void setPost(Post post) {
-        this.post = post;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

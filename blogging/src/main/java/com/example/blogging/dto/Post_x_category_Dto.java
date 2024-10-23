@@ -9,12 +9,12 @@ import jakarta.validation.constraints.NotNull;
 public class Post_x_category_Dto {
 
     private Category category;
+
     private Post post;
 
     public Post_x_category_Dto() {
         super();
     }
-
 
     public Post_x_category_Dto(Category category, Post post) {
         this.category = category;

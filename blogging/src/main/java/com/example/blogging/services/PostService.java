@@ -38,11 +38,6 @@ public class PostService {
         postInfo.setText(postDto.getText());
         postInfo.setDate_publication(postDto.getDate_publication());
         postInfo.setReactions(postDto.getReactions());
-        postInfo.setPost_x_category(postDto.getPost_x_category());
-        postInfo.setPost_x_tag(postDto.getPost_x_tag());
-        postInfo.setState(postDto.getState());
-        postInfo.setUser(postDto.getUser());
-        postInfo.setComment(postDto.getComment());
         return postRepository.save(postInfo);
     }
 
@@ -54,11 +49,6 @@ public class PostService {
             postToUpdate.setText(postDto.getText());
             postToUpdate.setDate_publication(postDto.getDate_publication());
             postToUpdate.setReactions(postDto.getReactions());
-            postToUpdate.setPost_x_category(postDto.getPost_x_category());
-            postToUpdate.setPost_x_tag(postDto.getPost_x_tag());
-            postToUpdate.setState(postDto.getState());
-            postToUpdate.setUser(postDto.getUser());
-            postToUpdate.setComment(postDto.getComment());
             postRepository.save(postToUpdate);
             return true;
         } else {

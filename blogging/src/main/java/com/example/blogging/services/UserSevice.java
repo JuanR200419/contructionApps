@@ -43,11 +43,6 @@ public class UserSevice {
         userInfo.setPhone_number(userDto.getPhone_number());
         userInfo.setEmail(userDto.getEmail());
         userInfo.setPassword(userDto.getPassword());
-        userInfo.setPost(userDto.getPost());
-        userInfo.setComment(userDto.getComment());
-        userInfo.setRole(userDto.getRole());
-        userInfo.setFollowings(userDto.getFollowings());
-        userInfo.setFollowers(userDto.getFollowers());
 
         return userRepository.save(userInfo);
     }
@@ -62,11 +57,6 @@ public class UserSevice {
             userToUpdate.setPhone_number(userDto.getPhone_number());
             userToUpdate.setEmail(userDto.getEmail());
             userToUpdate.setPassword(userDto.getPassword());
-            userToUpdate.setPost(userDto.getPost());
-            userToUpdate.setComment(userDto.getComment());
-            userToUpdate.setRole(userDto.getRole());
-            userToUpdate.setFollowings(userDto.getFollowings());
-            userToUpdate.setFollowers(userDto.getFollowers());
 
             userRepository.save(userToUpdate);
             return true;

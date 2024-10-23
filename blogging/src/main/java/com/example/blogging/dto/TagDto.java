@@ -15,16 +15,13 @@ public class TagDto {
     @NotBlank
     @Max(value = 80, message = "EL  nombre del tag  tiene un límite de 80 caracteres")
     private String name_tag;
-    @NotNull
-    private List<Post_x_tag> post_x_tag;
 
-    public TagDto(String name_tag, List<Post_x_tag> post_x_tag) {
+    public TagDto(String name_tag) {
         this.name_tag = name_tag;
-        this.post_x_tag = post_x_tag;
     }
+
     public TagDto() {
         super();
-
     }
 
     public String getName_tag() {
@@ -33,13 +30,5 @@ public class TagDto {
 
     public void setName_tag(String name_tag) {
         this.name_tag = name_tag;
-    }
-
-    public List<Post_x_tag> getPost_x_tag() {
-        return post_x_tag;
-    }
-
-    public void setPost_x_tag(List<Post_x_tag> post_x_tag) {
-        this.post_x_tag = post_x_tag;
     }
 }

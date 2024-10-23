@@ -35,7 +35,6 @@ public class StateService {
     public State createState(StateDto stateDto) {
         State stateInfo = new State();
         stateInfo.setName_state(stateDto.getName_state());
-        stateInfo.setPost(stateDto.getPost());
 
         return stateRepository.save(stateInfo);
     }
@@ -46,7 +45,6 @@ public class StateService {
         if (optionalState.isPresent()) {
             State stateToUpdate = optionalState.get();
             stateToUpdate.setName_state(stateDto.getName_state());
-            stateToUpdate.setPost(stateDto.getPost());
 
             stateRepository.save(stateToUpdate);
             return true;
